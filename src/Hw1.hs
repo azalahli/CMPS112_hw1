@@ -29,8 +29,9 @@ import Prelude  hiding (replicate, sum, reverse)
 -- 36
 
 sumList :: [Int] -> Int
-sumList xs = error "TBD:sumList"
-
+sumList [] = 0
+sumList (x:xs) = x + sumList xs
+--anyways, readme helps (sumlist post setup commit)
 
 -- | `digitsOfInt n` should return `[]` if `n` is not positive,
 --    and otherwise returns the list of digits of `n` in the
