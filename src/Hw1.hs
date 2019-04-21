@@ -15,7 +15,7 @@
 module Hw1 where
 
 import Prelude  hiding (replicate, sum, reverse)
-
+import Data.Char
 
 -- | Sum the elements of a list
 --
@@ -44,8 +44,25 @@ sumList (x:xs) = x + sumList xs
 -- [3, 5, 2, 6, 6, 3]
 
 digitsOfInt :: Int -> [Int]
-digitsOfInt n = error "TBD:digitsOfInt"
+digitsOfInt n = if n <= 0
+    then []
+    else digitsOfInt(div n 10) ++ (mod n 10):[]
+{-|
+digitsOfInt n = if n < 0
+    then []
+    else map digitToInt (show n)
+-}
+-- show n = [char]
+-- need to apply digitToInt w/o map
+-- if we can't operate on lists with anything but == ++ and length, this method is probably not viable
+    -- also questionable legality on char -> int library function
+    -- recursion somehow
+        -- easy to get one digit via % 10
+            -- div instead of / because ghci is asking me for a Fractional Int?
 
+            --last note, the policy for any function on ints seems odd if we can import anything
+                --under that policy, we could import someone elses function that uses said list operators,
+                --so long as we did not use those operators.
 
 -- | `digits n` retruns the list of digits of `n`
 --
