@@ -105,6 +105,20 @@ additivePersistence n = if (length (digitsOfInt (sumList(digitsOfInt n)))) <= 1
 -- using the wolfram test cases of 0, 1, 19, 199, <untestable number>
 -- pretty sure this is it but offset by one
 --oh fuck me, its <= 1 because zero returns an empty list
+{-
+Ok, modules loaded: Hw1.
+*Hw1 Hw1> additivePersistence 0
+0
+*Hw1 Hw1> additivePersistence 1
+1
+*Hw1 Hw1> additivePersistence 19
+2
+*Hw1 Hw1> additivePersistence 199
+3
+*Hw1 Hw1> additivePersistence 9876
+2
+*Hw1 Hw1>
+-}
 
 -- | digitalRoot n is the digit obtained at the end of the sequence
 --   computing the additivePersistence
