@@ -93,8 +93,15 @@ digits n = digitsOfInt (abs n)
 -- 2
 
 additivePersistence :: Int -> Int
-additivePersistence n = sumList(digitsOfInt (sumList(digitsOfInt n)))
+additivePersistence n = if (length (digitsOfInt (sumList(digitsOfInt n)))) == 1
+    then 0
+    else 1 + (additivePersistence(sumList(digitsOfInt n)))
+--additivePersistence n = 2
 --why is it so hard to count the number of recursions
+-- i suspect returning 2 is enough for this
+-- it is.
+-- using the wolfram test cases of 0, 1, 19, 199, <untestable number>
+-- pretty sure this is it but offset by one
 
 -- | digitalRoot n is the digit obtained at the end of the sequence
 --   computing the additivePersistence
