@@ -15,7 +15,6 @@
 module Hw1 where
 
 import Prelude  hiding (replicate, sum, reverse)
-import Data.Char
 
 -- | Sum the elements of a list
 --
@@ -94,7 +93,7 @@ digits n = digitsOfInt (abs n)
 -- 2
 
 additivePersistence :: Int -> Int
-additivePersistence n = error "TBD"
+additivePersistence n = sumList(digitsOfInt (sumList(digitsOfInt n)))
 --why is it so hard to count the number of recursions
 
 -- | digitalRoot n is the digit obtained at the end of the sequence
@@ -106,7 +105,9 @@ digitalRoot :: Int -> Int
 digitalRoot n = if (length (digitsOfInt (sumList(digitsOfInt n)))) == 1
     then sumList(digitsOfInt n)
     else sumList(digitsOfInt (sumList(digitsOfInt n)))
-
+-- interesting to note that the then statement can be replaced with a zero
+-- even more interesting to note that this can be only the else statement.
+-- additivePersistence n = sumList(digitsOfInt (sumList(digitsOfInt n))) is a valid digital root function
 
 -- | listReverse [x1,x2,...,xn] returns [xn,...,x2,x1]
 --
