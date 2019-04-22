@@ -103,11 +103,13 @@ additivePersistence n = sumList(digitsOfInt (sumList(digitsOfInt n)))
 -- 3
 digitalRoot :: Int -> Int
 digitalRoot n = if (length (digitsOfInt (sumList(digitsOfInt n)))) == 1
-    then sumList(digitsOfInt n)
-    else sumList(digitsOfInt (sumList(digitsOfInt n)))
+    then (sumList(digitsOfInt n))
+    else digitalRoot (sumList(digitsOfInt n))
 -- interesting to note that the then statement can be replaced with a zero
 -- even more interesting to note that this can be only the else statement.
 -- additivePersistence n = sumList(digitsOfInt (sumList(digitsOfInt n))) is a valid digital root function
+-- it is not valid, needed larger numbers
+-- i am more convinved this is correct
 
 -- | listReverse [x1,x2,...,xn] returns [xn,...,x2,x1]
 --
