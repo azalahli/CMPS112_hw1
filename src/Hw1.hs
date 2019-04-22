@@ -93,8 +93,10 @@ digits n = digitsOfInt (abs n)
 -- 2
 
 additivePersistence :: Int -> Int
-additivePersistence n = if (length (digitsOfInt (sumList(digitsOfInt n)))) == 1
-    then 0
+additivePersistence n = if (length (digitsOfInt (sumList(digitsOfInt n)))) <= 1
+    then if (length (digitsOfInt (sumList(digitsOfInt n)))) == 1
+        then 1
+            else 0
     else 1 + (additivePersistence(sumList(digitsOfInt n)))
 --additivePersistence n = 2
 --why is it so hard to count the number of recursions
@@ -102,6 +104,7 @@ additivePersistence n = if (length (digitsOfInt (sumList(digitsOfInt n)))) == 1
 -- it is.
 -- using the wolfram test cases of 0, 1, 19, 199, <untestable number>
 -- pretty sure this is it but offset by one
+--oh fuck me, its <= 1 because zero returns an empty list
 
 -- | digitalRoot n is the digit obtained at the end of the sequence
 --   computing the additivePersistence
@@ -109,7 +112,7 @@ additivePersistence n = if (length (digitsOfInt (sumList(digitsOfInt n)))) == 1
 -- >>> digitalRoot 9876
 -- 3
 digitalRoot :: Int -> Int
-digitalRoot n = if (length (digitsOfInt (sumList(digitsOfInt n)))) == 1
+digitalRoot n = if (length (digitsOfInt (sumList(digitsOfInt n)))) <= 1
     then (sumList(digitsOfInt n))
     else digitalRoot (sumList(digitsOfInt n))
 -- interesting to note that the then statement can be replaced with a zero
