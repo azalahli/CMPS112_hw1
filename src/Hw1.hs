@@ -102,7 +102,9 @@ additivePersistence n = error "TBD"
 -- >>> digitalRoot 9876
 -- 3
 digitalRoot :: Int -> Int
-digitalRoot n = error "TBD"
+digitalRoot n = if (length (digitsOfInt (sumList(digitsOfInt n)))) == 1
+    then sumList(digitsOfInt n)
+    else sumList(digitsOfInt (sumList(digitsOfInt n)))
 
 
 -- | listReverse [x1,x2,...,xn] returns [xn,...,x2,x1]
