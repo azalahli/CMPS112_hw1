@@ -95,6 +95,7 @@ digits n = digitsOfInt (abs n)
 
 additivePersistence :: Int -> Int
 additivePersistence n = error "TBD"
+--why is it so hard to count the number of recursions
 
 -- | digitalRoot n is the digit obtained at the end of the sequence
 --   computing the additivePersistence
