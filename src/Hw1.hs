@@ -147,6 +147,7 @@ digitalRoot n = if (length (digitsOfInt (sumList(digitsOfInt n)))) <= 1
 -- ["bicycle", "my", "ride", "to", "want", "i"]
 
 listReverse :: [a] -> [a]
+listReverse[] = []
 listReverse (x:xs) = (listReverse xs) ++ x:[]
 
 -- | In Haskell, a `String` is a simply a list of `Char`, that is:
