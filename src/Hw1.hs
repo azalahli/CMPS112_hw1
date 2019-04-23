@@ -46,7 +46,11 @@ digitsOfInt :: Int -> [Int]
 digitsOfInt n = if n <= 0
     then []
     else digitsOfInt(div n 10) ++ (mod n 10):[]
-{-|
+{-
+digitsOfInt 0 = [0]
+digitsOfInt n = digitsOfInt(div n 10) ++ (mod n 10):[]
+-}
+    {-|
 digitsOfInt n = if n < 0
     then []
     else map digitToInt (show n)
