@@ -162,4 +162,4 @@ listReverse (x:xs) = (listReverse xs) ++ x:[]
 -- False
 
 palindrome :: String -> Bool
-palindrome w = error "TBD"
+palindrome w = w == listReverse w
